@@ -2,16 +2,16 @@ import React from 'react'
 import { MdPageview } from "react-icons/md"
 import {FaUserMinus} from "react-icons/fa"
 import {MdOutlineBlock} from "react-icons/md"
-import IconsContact from './iconsContact'
-import { Contact } from '@/types/types'
+import IconsContact from './iconsPost'
+import { Post } from '@/types/types'
 
 
-const ContactCard = ({ username, photo, email, name }: Contact) => {
+const MyPostCard = ({ comments, content, archived, createAt }: Post) => {
     return (
         <article className='w-1/3 p-2 bg-green-300 rounded-lg justify-center'>
             <header className='flex items-center justify-between mb-4'>
-                <h2 className='text-xl capitalize'>{email}</h2>
-                <img className="bg-slate-100 rounded-full p-2" src={photo} alt="foto" />
+               <p>{content}</p>
+               <p>{createAt.toLocaleString("es-EN")}</p>
             </header>
             <article className='flex justify-end space-x-2 items-center'>
                 <IconsContact icon={MdPageview} size={20} />
@@ -22,4 +22,4 @@ const ContactCard = ({ username, photo, email, name }: Contact) => {
     )
 }
 
-export default ContactCard
+export default MyPostCard

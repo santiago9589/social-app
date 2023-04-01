@@ -1,12 +1,12 @@
 import ContactCard from '@/components/contact/contactCard'
 import LayoutComponent from '@/components/layout/Layout'
+import MyPostCard from '@/components/post/myPostCard'
 import useCurrent from '@/swr/current'
-import { Contact } from '@/types/types'
+import { Post } from '@/types/types'
 import React from 'react'
 
 
-
-const Contacts = () => {
+const Posts = () => {
 
   const { data } = useCurrent()
 
@@ -16,14 +16,13 @@ const Contacts = () => {
   return (
     <LayoutComponent>
       {
-        data?.user?.contacts.map((contact: Contact) => {
+        data?.user?.post.map((post: Post) => {
           return (
-            <ContactCard
-              key={contact.id}
-              email={contact.email}
-              name={contact.name}
-              photo={contact.photo}
-              username={contact.username}
+            <MyPostCard
+              comments={post.comments}
+              content={post.content}
+              archived={post.archived}
+              createAt={post.createAt}
             />
           )
         })
@@ -32,4 +31,4 @@ const Contacts = () => {
   )
 }
 
-export default Contacts
+export default Posts

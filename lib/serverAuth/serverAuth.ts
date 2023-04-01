@@ -14,14 +14,29 @@ const serverAuth = async (req: NextApiRequest) => {
         where: {
             email: session.user.email
         },
-        select:{
-            name:true,
-            username:true,
-            email:true,
-            photo:true,
-            contacts:true,
-            post:true,
-            id:true
+        select: {
+            name: true,
+            username: true,
+            email: true,
+            photo: true,
+            contacts: {
+                select: {
+                    id:true,
+                    email: true,
+                    name: true,
+                    photo: true,
+                    username: true,
+                }
+            },
+            post: {
+                select: {
+                    archived:true,
+                    content:true,
+                    createAt:true,
+                    comments:true
+                }
+            },
+            id: true
         }
     })
 
@@ -29,7 +44,7 @@ const serverAuth = async (req: NextApiRequest) => {
         throw new Error("credenciales invalidas")
     }
 
-    return {user}
+    return { user }
 }
 
 export default serverAuth

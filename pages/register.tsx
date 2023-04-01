@@ -6,6 +6,7 @@ import axios from 'axios'
 import ButtomForm from '@/components/form/buttom'
 import LayoutComponent from '@/components/layout/Layout'
 import FormComponent from '@/components/form/form'
+import { useRouter } from 'next/navigation'
 
 interface userRegister {
     name: string,
@@ -18,6 +19,7 @@ interface userRegister {
 
 const Register = () => {
 
+    const router = useRouter()
     const initialValues = {
         email: "",
         password: "",
@@ -40,15 +42,14 @@ const Register = () => {
         onSubmit: (async (values) => {
             try {
                 await axios.post("http://localhost:3000/api/register", values)
+                router.push("/login")
             } catch (error) {
                 console.log(error)
             }
         })
     })
 
-
     const { handleChange, handleSubmit, values, touched, errors } = formik
-
 
     return (
         <LayoutComponent>
