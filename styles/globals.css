@@ -6,12 +6,7 @@
 
 
 @layer base {
-    :root,
-    html {
-        @apply bg-green-100 h-full container mx-auto
-    }
-
     body{
-        @apply h-full w-full p-2
+        @apply bg-green-100 container mx-auto
     }
 }

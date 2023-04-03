@@ -18,7 +18,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className=' mb-3 flex justify-between items-center bg-green-300 p-2 rounded-md h-16'>
+            <nav className='col-span-3 row-span-1 mb-3 flex justify-between items-center bg-green-300 p-2 rounded-md '>
             <h1 className='bg-slate-100 text-2xl uppercase rounded-lg p-2'>SOCIAL APP ULTIMATE </h1>
             <section className='items-center justify-between flex '>
                 {
