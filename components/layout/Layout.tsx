@@ -8,13 +8,11 @@ interface props {
 
 const LayoutComponent = ({ children }: props) => {
     return (
-        <section className='w-full h-screen box-border grid grid-cols-3 grid-rows-5'>
+        <section className='w-full h-screen box-border grid grid-cols-5 grid-rows-5'>
             <Navbar />
-            <section className='col-span-3 row-span-6 flex gap-2 p-2'>
-                <Sidebar />
-                <section className='overflow-y-auto'>
-                    {children}
-                </section>
+            <Sidebar />
+            <section className='overflow-y-auto col-start-2 col-span-4 row-span-6'>
+                {children}
             </section>
         </section>
 

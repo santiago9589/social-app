@@ -6,12 +6,10 @@ import { RiLoginBoxFill } from "react-icons/ri"
 import { GiArchiveRegister } from "react-icons/gi"
 import IconsComponent from './icons/iconsComponent'
 import { useRouter } from 'next/navigation'
-import { userLog } from '@/types/types'
 
 const Navbar = () => {
 
     const { data } = useCurrent()
-    const userLog : userLog = data.user
     const route = useRouter()
 
 
@@ -20,11 +18,11 @@ const Navbar = () => {
     }
 
     return (
-            <nav className='col-span-3 row-span-1 mb-3 flex justify-between items-center bg-green-300 p-2 rounded-md '>
+            <nav className='col-span-6 row-span-1 mb-3 flex justify-between items-center bg-green-300 p-2 rounded-md '>
             <h1 className='bg-slate-100 text-2xl uppercase rounded-lg p-2'>SOCIAL APP ULTIMATE </h1>
             <section className='items-center justify-between flex '>
                 {
-                    !userLog.email ? (
+                    !data?.user?.email ? (
                         <section className='h-full gap-4 flex w-60 items-center justify-between'>
                             <IconsComponent handleClick={() => { route.push("/login") }} size={25} icon={RiLoginBoxFill} name={"login"} />
                             <IconsComponent handleClick={() => { route.push("/register") }} size={25} icon={GiArchiveRegister} name={"register"} />

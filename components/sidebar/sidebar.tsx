@@ -9,7 +9,6 @@ import { AiFillSetting } from "react-icons/ai"
 import { FaUserAlt } from "react-icons/fa"
 import { GiArchiveRegister } from "react-icons/gi"
 import useCurrent from '@/swr/current'
-import { userLog } from '@/types/types'
 
 
 interface props {
@@ -19,14 +18,13 @@ interface props {
 const Sidebar = ({ }: props) => {
 
     const { data } = useCurrent()
-    const userLog : userLog = data.user
     const route = useRouter()
 
     return (
-        <aside className={`col-span-1 row-span-6 flex flex-col  bg-green-300 rounded-lg ${userLog.email ? "justify-between" : "justify-start space-y-4"} h-full basis-52 items-center p-4`}>
+        <aside className={`col-span-1 row-span-6 flex flex-col  bg-green-300 rounded-lg ${data?.user?.email ? "justify-between" : "justify-start space-y-4"} h-full items-center p-4`}>
 
             {
-                userLog.email ? (
+                data?.user?.email ? (
                     <>
                         <IconsComponent classAdded={"text-lg"} handleClick={() => { route.push("/contacts") }} size={25} icon={RiContactsBook2Fill} name={"contacts"} />
                         <IconsComponent classAdded={"text-lg"} handleClick={() => { route.push("/") }} size={25} icon={AiFillHome} name={"home"} />
@@ -40,7 +38,7 @@ const Sidebar = ({ }: props) => {
                     )
             }
             {
-                !userLog.email ? (
+                !data?.user?.email ? (
                     <>
                         <IconsComponent classAdded={"text-xl"} handleClick={() => { route.push("/login") }} size={25} icon={RiLoginBoxFill} name={"login"} />
                         <IconsComponent classAdded={"text-xl"} handleClick={() => { route.push("/register") }} size={25} icon={GiArchiveRegister} name={"register"} />

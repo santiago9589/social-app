@@ -87,7 +87,7 @@ const Register = () => {
                     touched={touched.password || false}
                 />
                 <InputComponent
-                    type="text"
+                    type="image"
                     value={values.photo}
                     handleChange={handleChange}
                     name="photo"
