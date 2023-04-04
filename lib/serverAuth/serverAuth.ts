@@ -18,7 +18,7 @@ const serverAuth = async (req: NextApiRequest) => {
             name: true,
             username: true,
             email: true,
-            photo: true,
+            photo: true,    
             contacts: {
                 select: {
                     id:true,
@@ -26,6 +26,7 @@ const serverAuth = async (req: NextApiRequest) => {
                     name: true,
                     photo: true,
                     username: true,
+                    coverPhoto:true
                 }
             },
             post: {

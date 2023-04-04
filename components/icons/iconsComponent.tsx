@@ -2,7 +2,7 @@ import React from 'react'
 import { IconType } from 'react-icons/lib/esm/iconBase'
 
 interface props {
-    name: string
+    name: string | number
     icon: IconType
     size: number
     handleClick?: () => void

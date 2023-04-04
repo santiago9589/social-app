@@ -20,6 +20,8 @@ model User{
   createAt DateTime
   password String
   photo String
+  coverPhoto String
+  coverBackground String
 }
 
 model Contact{
@@ -31,6 +33,7 @@ model Contact{
   user User @relation(fields: [userId],references: [id])
   post Post[]
   photo String
+  coverPhoto String
 }
 
 model Post{
@@ -43,6 +46,7 @@ model Post{
   archived Boolean
   comments Comment[]
   content String
+  role String
 }
 
 model Comment{

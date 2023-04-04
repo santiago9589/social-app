@@ -3,7 +3,7 @@ export interface Post {
     comments: Comment[]
     content: string
     createAt: Date
-    id?:string
+    id?: string
 }
 
 export interface Comment {
@@ -17,5 +17,15 @@ export interface Contact {
     photo: string
     username: string
     id?: string
-  }
-  
+    coverPhoto?: string
+}
+
+export interface userLog {
+    name: string,
+    username: string,
+    email: string,
+    photo: string,
+    contacts: Contact[],
+    post:Post[],
+    id: true
+}
