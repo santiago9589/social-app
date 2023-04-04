@@ -21,7 +21,7 @@ const Sidebar = ({ }: props) => {
     const route = useRouter()
 
     return (
-        <aside className={`flex flex-col  bg-green-300 rounded-lg ${data?.user?.email ? "justify-between" : "justify-start space-y-4"} h-full basis-52 items-center p-4`}>
+        <aside className={`col-span-1 row-span-6 flex flex-col  bg-green-300 rounded-lg ${data?.user?.email ? "justify-between" : "justify-start space-y-4"} h-full basis-52 items-center p-4`}>
 
             {
                 data?.user?.email ? (

@@ -10,24 +10,75 @@ const Contacts = () => {
 
   const { data } = useCurrent()
 
-  console.log(data?.user)
+
+  const datafaske = [{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  },{
+    email:"email",
+    name:"name",
+    photo:"photo",
+    username:"username"
+
+  }]
 
 
   return (
     <LayoutComponent>
-      {
-        data?.user?.contacts.map((contact: Contact) => {
-          return (
-            <ContactCard
-              key={contact.id}
-              email={contact.email}
-              name={contact.name}
-              photo={contact.photo}
-              username={contact.username}
-            />
-          )
-        })
-      }
+      <section className='flex gap-4 w-full flex-wrap'>
+        {
+         datafaske.map((contact: Contact) => {
+            return (
+              <ContactCard
+                key={contact.id}
+                email={contact.email}
+                name={contact.name}
+                photo={contact.photo}
+                username={contact.username}
+              />
+            )
+          })
+        }
+      </section>
     </LayoutComponent>
   )
 }

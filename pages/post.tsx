@@ -1,32 +1,194 @@
-import ContactCard from '@/components/contact/contactCard'
 import LayoutComponent from '@/components/layout/Layout'
 import MyPostCard from '@/components/post/myPostCard'
-import useCurrent from '@/swr/current'
+
 import { Post } from '@/types/types'
+import axios from 'axios'
 import React from 'react'
 
 
-const Posts = () => {
+interface props {
+  data: Post[]
+  error: string
+}
 
-  const { data } = useCurrent()
 
-  console.log(data?.user)
+export const getServerSideProps = async () => {
 
+  try {
+
+    const res = await axios.get("http://localhost:3000/api/post/all")
+
+    const data = res.data
+
+    return {
+      props: {
+        data,
+        error: ""
+      }
+    }
+
+  } catch (error: any) {
+
+    return {
+      props: {
+        data: [],
+        error
+      }
+    }
+
+
+  }
+
+}
+
+
+const Posts = ({ data, error }: props) => {
+
+
+  const datafaske = [{
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: false,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  },
+  {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: true,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  }, {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: false,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  },
+  {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: true,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  }, {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: false,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  },
+  {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: true,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  }, {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: false,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  },
+  {
+    comments: [
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      },
+      {
+        createAt: new Date(),
+        content: "fdfsd"
+      }
+    ],
+    archived: true,
+    createAt: new Date(),
+    content: "sfsfsa"
+
+  }]
 
   return (
     <LayoutComponent>
-      {
-        data?.user?.post.map((post: Post) => {
-          return (
-            <MyPostCard
-              comments={post.comments}
-              content={post.content}
-              archived={post.archived}
-              createAt={post.createAt}
-            />
-          )
-        })
-      }
+      <section className='flex gap-4 w-full flex-wrap'>
+        {
+          data?.map((post: Post) => {
+            return (
+              <MyPostCard
+                key={post.id}
+                comments={post.comments}
+                content={post.content}
+                archived={post.archived}
+                createAt={post.createAt}
+              />
+            )
+          })
+        }
+      </section>
+
     </LayoutComponent>
   )
 }

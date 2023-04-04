@@ -3,6 +3,7 @@ export interface Post {
     comments: Comment[]
     content: string
     createAt: Date
+    id?:string
 }
 
 export interface Comment {

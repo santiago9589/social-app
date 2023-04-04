@@ -12,7 +12,7 @@ const LayoutComponent = ({ children }: props) => {
             <Navbar />
             <section className='col-span-3 row-span-6 flex gap-2 p-2'>
                 <Sidebar />
-                <section className='overflow-y-auto flex-1'>
+                <section className='overflow-y-auto'>
                     {children}
                 </section>
             </section>
