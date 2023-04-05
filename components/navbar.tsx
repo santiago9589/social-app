@@ -10,11 +10,12 @@ import { useRouter } from 'next/navigation'
 const Navbar = () => {
 
     const { data } = useCurrent()
-    const route = useRouter()
+    const router = useRouter()
 
 
     const handleLogout = async () => {
         await signOut()
+        router.push("/login")
     }
 
     return (
@@ -24,10 +25,10 @@ const Navbar = () => {
                 {
                     !data?.user?.email ? (
                         <section className='h-full gap-4 flex w-60 items-center justify-between'>
-                            <IconsComponent handleClick={() => { route.push("/login") }} size={25} icon={RiLoginBoxFill} name={"login"} />
-                            <IconsComponent handleClick={() => { route.push("/register") }} size={25} icon={GiArchiveRegister} name={"register"} />
+                            <IconsComponent handleClick={() => { router.push("/login") }} size={25} icon={RiLoginBoxFill} name={"login"} />
+                            <IconsComponent handleClick={() => { router.push("/register") }} size={25} icon={GiArchiveRegister} name={"register"} />
                         </section>) : (
-                        <section className='h-full gap-4 flex w-60 items-center justify-between'>
+                        <section className='h-full gap-4  flex flex-col w-64 items-center justify-between'>
                             <article className='flex w-full items-center bg-slate-100 rounded-lg px-2 justify-between'>
                                 <p className='capitalize'>{data.user.email}</p>
                                 <img className='w-10 h-full rounded-full'

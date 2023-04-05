@@ -6,6 +6,7 @@ import InputComponent from '@/components/form/input'
 import ButtomForm from '@/components/form/buttom'
 import LayoutComponent from '@/components/layout/Layout'
 import FormComponent from '@/components/form/form'
+import { useRouter } from 'next/navigation'
 
 interface user {
     email: string
@@ -15,6 +16,7 @@ interface user {
 
 const Login = () => {
 
+    const router = useRouter()
     const initialValues = {
         email: "",
         password: ""
@@ -33,6 +35,7 @@ const Login = () => {
                 email: values.email,
                 password: values.password,
             })
+            router.push("/")
         })
     })
 

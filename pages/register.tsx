@@ -13,7 +13,6 @@ interface userRegister {
     password: string,
     username: string,
     email: string,
-    photo: string
 }
 
 
@@ -25,7 +24,6 @@ const Register = () => {
         password: "",
         name: "",
         username: "",
-        photo: ""
     }
 
     const validateSchema = Yup.object().shape({
@@ -33,7 +31,6 @@ const Register = () => {
         password: Yup.string().required(),
         username: Yup.string().required(),
         email: Yup.string().required(),
-        photo: Yup.string().required()
     })
 
     const formik = useFormik<userRegister>({
@@ -85,14 +82,6 @@ const Register = () => {
                     name="password"
                     errors={errors.password || ""}
                     touched={touched.password || false}
-                />
-                <InputComponent
-                    type="image"
-                    value={values.photo}
-                    handleChange={handleChange}
-                    name="photo"
-                    errors={errors.photo || ""}
-                    touched={touched.photo || false}
                 />
                 <ButtomForm name='register' />
             </FormComponent>

@@ -173,7 +173,7 @@ const Posts = ({ data, error }: props) => {
 
   return (
     <LayoutComponent>
-      <section className='flex gap-4 w-full flex-wrap'>
+      <section className='flex gap-4 w-full flex-wrap p-2'>
         {
           data?.map((post: Post) => {
             return (
@@ -183,6 +183,7 @@ const Posts = ({ data, error }: props) => {
                 content={post.content}
                 archived={post.archived}
                 createAt={post.createAt}
+                role={post.role}
               />
             )
           })

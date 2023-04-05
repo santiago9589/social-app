@@ -5,9 +5,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method !== "POST") {
         return res.status(504).send("sin respuesta")
     }
-    const { name, username, email, password, photo } = req.body
+    const { name, username, email, password} = req.body
 
-    if (!name || !username || !email || !password || !photo) {
+    if (!name || !username || !email || !password ) {
         return res.status(404).send("campos invalidos")
     }
 
@@ -28,7 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 username,
                 email,
                 password,
-                photo,
                 createAt: new Date()
             }
         })

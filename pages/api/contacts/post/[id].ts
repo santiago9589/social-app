@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(504).send("metodo equivocado")
     }
 
-    const idUser:any = req.query
+    const idUser:any = req.query.id
     const { name, username, email,  photo } = req.body
 
     if (!idUser || !name || !username || !email  || !photo) {
@@ -35,16 +35,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
 
-        const response = prisma.contact.create({
+        const response = await prisma.contact.create({
             data: {
                 name,
                 username,
                 email,
                 photo,
                 userId:userExist.id
+          
             }
         })
-
+      
         return res.status(200).send(response)
 
     } catch (error: any) {
@@ -52,3 +53,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
 }
+

@@ -2,71 +2,52 @@ import ContactCard from '@/components/contact/contactCard'
 import LayoutComponent from '@/components/layout/Layout'
 import useCurrent from '@/swr/current'
 import { Contact } from '@/types/types'
+import axios from 'axios'
 import React from 'react'
 
+interface props {
+  data: Contact[]
+  error: string
+}
 
 
-const Contacts = () => {
+export const getServerSideProps = async () => {
 
-  const { data } = useCurrent()
+  try {
+
+    const res = await axios.get("http://localhost:3000/api/contacts/all")
+
+    const data = res.data
+
+    return {
+      props: {
+        data,
+        error: ""
+      }
+    }
+
+  } catch (error: any) {
+
+    return {
+      props: {
+        data: [],
+        error
+      }
+    }
 
 
-  const datafaske = [{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
+  }
 
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
+}
 
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
 
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
-
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
-
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
-
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
-
-  },{
-    email:"email",
-    name:"name",
-    photo:"photo",
-    username:"username"
-
-  }]
-
+const Contacts = ({data,error}:props) => {
 
   return (
     <LayoutComponent>
-      <section className='flex gap-4 w-full flex-wrap'>
+      <section className='flex gap-4 w-full flex-wrap p-2'>
         {
-         datafaske.map((contact: Contact) => {
+         data.map((contact: Contact) => {
             return (
               <ContactCard
                 key={contact.id}

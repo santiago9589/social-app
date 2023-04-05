@@ -4,6 +4,7 @@ export interface Post {
     content: string
     createAt: Date
     id?: string
+    role:string
 }
 
 export interface Comment {
@@ -14,8 +15,9 @@ export interface Comment {
 export interface Contact {
     email: string
     name: string
-    photo: string
+    photo?: string
     username: string
+    post?: Post[],
     id?: string
     coverPhoto?: string
 }
@@ -29,3 +31,4 @@ export interface userLog {
     post:Post[],
     id: true
 }
+

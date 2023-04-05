@@ -6,7 +6,6 @@ import { RiContactsBook2Fill } from "react-icons/ri"
 import { AiFillHome } from "react-icons/ai"
 import { FaClipboardList } from "react-icons/fa"
 import { AiFillSetting } from "react-icons/ai"
-import { FaUserAlt } from "react-icons/fa"
 import { GiArchiveRegister } from "react-icons/gi"
 import useCurrent from '@/swr/current'
 

@@ -8,17 +8,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
 
-        const response = await prisma.post.findMany({
+        const response = await prisma.contact.findMany({
             select: {
-                comments: true,
-                content: true,
-                archived: true,
-                createAt: true,
-                id:true,
-                role:true
+                name: true,
+                email: true,
+                username: true,
+                post: true,
+                photo: true,
+                coverPhoto: true
             }
         })
-
 
         return res.status(200).send(response)
 

@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(504).send("metodo equivocado")
     }
 
-    const id:any = req.query
+    const id:any = req.query.id
     const { name, username, email, password, photo } = req.body
 
     if (!id || !name || !username || !email || !password || !photo) {

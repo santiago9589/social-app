@@ -7,11 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(504).send("metodo equivocado")
     }
 
-    const {id}:any = req.query
-    const {content } = req.body
-
-    console.log(id)
-    console.log(content)
+    const id:any = req.query.id
+    const {content,role } = req.body
 
     if (!id || !content ) {
         return res.status(404).send("datos invalidos")
@@ -34,7 +31,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 archived:false,
                 content,
                 userId:userExist.id,
-                createAt:new Date()
+                createAt:new Date(),
+                role
             }
         })
 
