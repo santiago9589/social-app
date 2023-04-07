@@ -7,6 +7,7 @@ import ButtomForm from '@/components/form/buttom'
 import LayoutComponent from '@/components/layout/Layout'
 import FormComponent from '@/components/form/form'
 import { useRouter } from 'next/navigation'
+import PrivateRoutes from '@/privateRoutes/privateRoutes'
 
 interface userRegister {
     name: string,
@@ -88,5 +89,7 @@ const Register = () => {
         </LayoutComponent>
     )
 }
+
+
 
 export default Register

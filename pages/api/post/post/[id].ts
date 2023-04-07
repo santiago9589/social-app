@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const id:any = req.query.id
     const {content,role } = req.body
 
-    if (!id || !content ) {
+    if (!id || !content || !role ) {
         return res.status(404).send("datos invalidos")
     }
 

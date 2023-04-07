@@ -5,6 +5,6 @@
 
 @layer base {
     body{
-        @apply bg-green-100 container mx-auto
+        @apply container mx-auto bg-gradient-to-r from-green-300 via-slate-100 to-green-300
     }
 }
