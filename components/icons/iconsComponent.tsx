@@ -12,7 +12,7 @@ interface props {
 const IconsComponent = ({ name, icon: Icon, size, handleClick, classAdded }: props) => {
     return (
         <>
-            <article className='hidden md:flex  capitalize space-x-1 items-center w-full p-2 justify-around bg-slate-100 rounded-lg ' onClick={handleClick}>
+            <article className='hidden md:flex  capitalize space-x-1 items-center w-full p-2 justify-between bg-slate-100 rounded-lg ' onClick={handleClick}>
                 <h3 className={`w-16 ${classAdded && classAdded}`}>{name}</h3>
                 <Icon  size={size} />
             </article>

@@ -8,7 +8,7 @@ import { Post } from '@/types/types'
 
 const MyPostCard = ({ comments, content, archived, createAt, id,role }: Post) => {
     return (
-        <article className={`w-80 h-32 p-2 ${role === "me" ? "bg-green-300" : "bg-slate-300"} rounded-lg flex flex-col justify-between`}>
+        <article className={`w-80 h-32 p-2 ${role === "me" ? "bg-green-100" : "bg-slate-100"} rounded-lg flex flex-col justify-between`}>
             <header className='flex items-center justify-between mb-4'>
                 <p>{content}</p>
             </header>

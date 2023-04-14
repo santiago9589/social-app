@@ -11,7 +11,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const id:any = req.query.id
     const { username } = req.body
 
-    console.log(username)
 
     if (!username) {
         return res.status(404).send("datos invalidos")

@@ -29,7 +29,7 @@ const Sidebar = ({ }: props) => {
                         <IconsComponent classAdded={"text-lg"} handleClick={() => { route.push("/") }} size={25} icon={AiFillHome} name={"home"} />
                         <IconsComponent classAdded={"text-lg"} handleClick={() => { route.push("/post") }} size={25} icon={FaClipboardList} name={"post"} />
                         <IconsComponent classAdded={"text-lg"} handleClick={() => { route.push("/settings") }} size={25} icon={AiFillSetting} name={"settings"} />
-                        <p className=' uppercase text-xl'>{data.user.email}</p>
+                        <p className=' uppercase text-xl bg-slate-100 p-2 w-full text-center font-bold rounded-xl'>{data.user.email}</p>
                     </>
                 ) :
                     (

@@ -7,6 +7,7 @@ import { GiArchiveRegister } from "react-icons/gi"
 import IconsComponent from './icons/iconsComponent'
 import { useRouter } from 'next/navigation'
 
+
 const Navbar = () => {
 
     const { data } = useCurrent()
@@ -20,7 +21,8 @@ const Navbar = () => {
 
     return (
             <nav className='col-span-6 row-span-1 mb-3 flex justify-between items-center bg-green-300 p-2 rounded-lg'>
-            <h1 className='bg-slate-100 text-2xl uppercase rounded-lg p-2'>SOCIAL APP ULTIMATE </h1>
+            <h1 className='bg-slate-100 text-6xl ml-2 p-2 rounded-lg '>𝕊𝕠𝕔𝕚𝕒𝕝 𝔸𝕡𝕡 𝕌𝕝𝕥𝕚𝕞𝕒𝕥𝕖  </h1>
+            
             <section className='items-center justify-between flex '>
                 {
                     !data?.user?.email ? (

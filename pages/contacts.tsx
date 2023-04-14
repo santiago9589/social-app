@@ -9,10 +9,13 @@ import React from 'react'
 const Contacts = () => {
 
 
-  const { data } = useContacts()
+  const { data,isLoading } = useContacts()
+
+  
 
   return (
     <LayoutComponent>
+      
       <section className='flex gap-4 w-full flex-wrap p-2'>
         {
          data?.map((contact: Contact) => {
